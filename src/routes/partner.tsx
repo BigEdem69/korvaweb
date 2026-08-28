@@ -56,7 +56,7 @@ function Partner() {
         <a href="mailto:korvasystems@gmail.com" className="btn btn-signal">
           Email Us
         </a>
-        <a href="https://wa.me/233000000000" className="btn btn-line-dark">
+            <a href="https://wa.me/233556492431" className="btn btn-line-dark">
           WhatsApp Us
         </a>
       </PageHero>
@@ -108,7 +108,7 @@ function Partner() {
             <a href="mailto:korvasystems@gmail.com" className="btn btn-gradient">
               Email Us
             </a>
-            <a href="https://wa.me/233000000000" className="btn btn-line">
+            <a href="https://wa.me/233556492431" className="btn btn-line">
               WhatsApp Us
             </a>
           </div>

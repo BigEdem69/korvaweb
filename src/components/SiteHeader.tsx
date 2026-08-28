@@ -15,6 +15,8 @@ const groups = [
     label: "Resources",
     items: [
       { to: "/insights", title: "Insights", desc: "Research & discovery findings" },
+      { to: "/faq", title: "FAQ", desc: "Common questions about Korva Systems" },
+      { to: "/case-study", title: "Case Study", desc: "How we validated the sanitation reporting gap" },
       { to: "/press-kit", title: "Press Kit", desc: "Boilerplate, logos & brand assets" },
     ],
   },

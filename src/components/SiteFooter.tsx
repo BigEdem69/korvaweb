@@ -48,6 +48,16 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link to="/faq" className="hover:text-cyan">
+                FAQ
+              </Link>
+            </li>
+            <li>
+              <Link to="/case-study" className="hover:text-cyan">
+                Case Study
+              </Link>
+            </li>
+            <li>
               <Link to="/press-kit" className="hover:text-cyan">
                 Press Kit
               </Link>
@@ -71,7 +81,7 @@ export function SiteFooter() {
               </a>
             </li>
             <li>
-              <a href="https://wa.me/233000000000" className="hover:text-cyan">
+              <a href="https://wa.me/233556492431" className="hover:text-cyan">
                 WhatsApp
               </a>
             </li>
