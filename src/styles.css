@@ -1,0 +1,323 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Korva Systems design system — "night-city infrastructure".
+ * Deep midnight surfaces, bold geometric display type, teal->cyan glow,
+ * amber signal accent. All colors are oklch tokens; never hardcode colors
+ * in components.
+ */
+
+@theme inline {
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-midnight: var(--midnight);
+  --color-midnight-deep: var(--midnight-deep);
+  --color-midnight-soft: var(--midnight-soft);
+  --color-midnight-foreground: var(--midnight-foreground);
+  --color-midnight-muted: var(--midnight-muted);
+  --color-cyan: var(--cyan);
+  --color-signal: var(--signal);
+  --color-signal-deep: var(--signal-deep);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.24 0.028 240);
+  --card: oklch(0.975 0.008 235);
+  --card-foreground: oklch(0.24 0.028 240);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.24 0.028 240);
+
+  --primary: oklch(0.42 0.093 176);
+  --primary-foreground: oklch(0.99 0.005 230);
+  --secondary: oklch(0.96 0.01 230);
+  --secondary-foreground: oklch(0.28 0.03 240);
+  --muted: oklch(0.965 0.008 235);
+  --muted-foreground: oklch(0.53 0.022 240);
+  --accent: oklch(0.75 0.14 66);
+  --accent-foreground: oklch(0.24 0.05 60);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.99 0.005 230);
+  --border: oklch(0.91 0.012 235);
+  --input: oklch(0.91 0.012 235);
+  --ring: oklch(0.62 0.1 195);
+
+  --midnight: oklch(0.19 0.05 250);
+  --midnight-deep: oklch(0.145 0.045 253);
+  --midnight-soft: oklch(0.26 0.055 248);
+  --midnight-foreground: oklch(0.97 0.01 230);
+  --midnight-muted: oklch(0.76 0.03 235);
+  --cyan: oklch(0.78 0.13 200);
+  --signal: oklch(0.75 0.14 66);
+  --signal-deep: oklch(0.62 0.14 54);
+
+  --gradient-cta: linear-gradient(100deg, var(--primary), var(--cyan));
+  --gradient-night: linear-gradient(160deg, var(--midnight-deep), var(--midnight) 55%, var(--midnight-soft));
+  --shadow-glow: 0 18px 50px -18px color-mix(in oklab, var(--cyan) 55%, transparent);
+  --shadow-card: 0 14px 40px -22px color-mix(in oklab, var(--midnight) 45%, transparent);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.06;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 4.2vw, 3.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 3.4vw, 2.7rem);
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    line-height: 1.25;
+  }
+
+  ::selection {
+    background: var(--signal);
+    color: var(--accent-foreground);
+  }
+}
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  .section {
+    padding-block: 5.5rem;
+  }
+
+  .eyebrow {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--primary);
+  }
+
+  .eyebrow-on-dark {
+    color: var(--cyan);
+  }
+
+  .lede {
+    font-size: 1.0625rem;
+    color: var(--muted-foreground);
+    max-width: 42rem;
+  }
+
+  .lede-on-dark {
+    color: var(--midnight-muted);
+  }
+
+  .night {
+    background: var(--gradient-night);
+    color: var(--midnight-foreground);
+  }
+
+  .dotfield {
+    background-image: radial-gradient(
+      color-mix(in oklab, var(--cyan) 32%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 18px 18px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.6rem;
+    transition:
+      transform 0.16s ease,
+      box-shadow 0.16s ease,
+      background-color 0.16s ease,
+      color 0.16s ease;
+  }
+
+  .btn-gradient {
+    background: var(--gradient-cta);
+    color: var(--primary-foreground);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .btn-gradient:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-signal {
+    background: var(--signal);
+    color: var(--accent-foreground);
+  }
+
+  .btn-signal:hover {
+    background: var(--signal-deep);
+    color: var(--primary-foreground);
+    transform: translateY(-2px);
+  }
+
+  .btn-line {
+    border: 1.5px solid var(--border);
+    color: var(--foreground);
+  }
+
+  .btn-line:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+
+  .btn-line-dark {
+    border: 1.5px solid color-mix(in oklab, var(--midnight-foreground) 40%, transparent);
+    color: var(--midnight-foreground);
+  }
+
+  .btn-line-dark:hover {
+    background: color-mix(in oklab, var(--midnight-foreground) 12%, transparent);
+  }
+
+  .panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.75rem;
+  }
+
+  .panel-white {
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.75rem;
+    box-shadow: var(--shadow-card);
+  }
+
+  .panel-night {
+    background: color-mix(in oklab, var(--midnight-foreground) 6%, transparent);
+    border: 1px solid color-mix(in oklab, var(--midnight-foreground) 14%, transparent);
+    border-radius: 1rem;
+    padding: 1.75rem;
+  }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2rem, 3.6vw, 2.75rem);
+    line-height: 1;
+    background: var(--gradient-cta);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .stat-num-on-dark {
+    background: linear-gradient(100deg, var(--cyan), var(--signal));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-display);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+  }
+
+  .tag-pilot {
+    background: color-mix(in oklab, var(--signal) 18%, transparent);
+    color: var(--signal-deep);
+  }
+
+  .tag-planned {
+    background: var(--muted);
+    color: var(--muted-foreground);
+  }
+
+  .tag-on-dark {
+    background: color-mix(in oklab, var(--cyan) 20%, transparent);
+    color: var(--cyan);
+  }
+
+  .rule-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--primary);
+  }
+
+  .rule-link:hover {
+    gap: 0.7rem;
+  }
+}
